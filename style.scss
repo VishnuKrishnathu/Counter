@@ -1,0 +1,41 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+@mixin center_func($value){
+    display: flex;
+    justify-content: center;
+    align-items: $value;
+}
+b{
+    h3{
+        background-color: aqua;
+        @include center_func(center);
+        height: 70px;
+        font-size: 2.5em;
+    }
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,150px);
+    .number{
+        grid-column: 2/3;
+        font-size: 2.5em;
+    }
+}
+h1{
+    grid-column: 2/3;
+    @include center_func(flex-end);
+}
+.increase ,.reset ,.decrease{
+    @include center_func(flex-start);
+    border: solid;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}

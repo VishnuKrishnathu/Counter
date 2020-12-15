@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll("#btn");
 console.log(buttons[1].attributes[0].value);
+var stopper = true;
 var count = 0;
 buttons.forEach((button) => (
     button.addEventListener("click",async () => {
@@ -11,10 +12,14 @@ buttons.forEach((button) => (
 )
 function decrement(count){
     new Promise((resolve,reject) => {
-        clearInterval(interval);
-        var interval =setInterval(() => {
+        if (stopper){
+            stopper = false;
+            var interval =setInterval(() => {
                 count--
                 resolve(document.querySelector("#num").textContent = count)
             }, 1000)
+        }else {
+            clearInterval(interval);
+        }
     })
 }

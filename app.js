@@ -7,6 +7,9 @@ buttons.forEach((button) => (
     button.addEventListener("click",async () => {
         if (button.attributes[0].value === "decrease"){
             await decrement(count)
+            } else if (button.attributes[0].value === "reset"){
+                clearInterval(interv);
+                document.querySelector("#num").textContent = 0;
             }
         }
  ) )
